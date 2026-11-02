@@ -1,0 +1,406 @@
+
+/* CONFIGURACIÓN GENERAL */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+        135deg,
+        #130813,
+        #32102c,
+        #180d22,
+        #090611
+    );
+    color: white;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ESTRELLAS DEL FONDO */
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffb5d5;
+    animation: twinkle 3s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.2;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* CORAZONES FLOTANTES */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    color: #ff6fae;
+    animation: floatUp linear forwards;
+    opacity: 0.7;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.container {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+    padding: 60px 20px 30px;
+}
+
+/* ENCABEZADO */
+
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.small-title {
+    color: #ff9ec8;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+
+.header h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(45px, 8vw, 75px);
+    margin: 20px 0;
+    font-weight: normal;
+    text-shadow: 0 0 25px #ff5caa;
+}
+
+.header h1 span {
+    color: #ff78b4;
+}
+
+.subtitle {
+    color: #e5c9dc;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* TARJETA PRINCIPAL */
+
+.love-card {
+    max-width: 650px;
+    margin: auto;
+    padding: 45px 30px;
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 157, 204, 0.3);
+    border-radius: 25px;
+
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 0 40px rgba(255, 65, 145, 0.15);
+    transition: 0.4s;
+}
+
+.love-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 50px rgba(255, 65, 145, 0.3);
+}
+
+.heart-icon {
+    color: #ff6fae;
+    font-size: 55px;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.2);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+    60% {
+        transform: scale(1.15);
+    }
+}
+
+.love-card h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    color: #ffacd0;
+    margin: 15px 0;
+}
+
+.intro {
+    color: #e8d5e3;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.divider {
+    margin: 25px 0;
+    color: #ff75ad;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, transparent, #ff75ad);
+}
+
+.divider::after {
+    background: linear-gradient(90deg, #ff75ad, transparent);
+}
+
+.question {
+    color: #f5d9e9;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* BOTONES */
+
+.love-button,
+.surprise-button {
+    padding: 14px 30px;
+    border: none;
+    border-radius: 50px;
+
+    background: linear-gradient(135deg, #ff4f9a, #bd267e);
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 25px rgba(255, 55, 140, 0.35);
+}
+
+.love-button:hover,
+.surprise-button:hover {
+    transform: scale(1.07);
+    box-shadow: 0 5px 35px rgba(255, 55, 140, 0.65);
+}
+
+.love-button span {
+    margin-left: 8px;
+    font-size: 20px;
+}
+
+/* CARTA DE AMOR */
+
+.letter {
+    max-width: 650px;
+    margin: 35px auto;
+    padding: 35px;
+
+    background: linear-gradient(145deg, #fff0f6, #f9dce9);
+    color: #632442;
+
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 100, 170, 0.2);
+
+    animation: appear 1s ease;
+}
+
+.letter-top {
+    text-align: center;
+    color: #d33e83;
+    font-size: 13px;
+    letter-spacing: 3px;
+}
+
+.letter h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 45px;
+    text-align: center;
+    margin: 20px 0;
+    color: #b52c70;
+}
+
+.letter p {
+    font-size: 14px;
+    line-height: 2;
+    margin: 15px 0;
+    text-align: justify;
+}
+
+.final-message {
+    color: #b52c70;
+    font-weight: 600;
+}
+
+.signature {
+    text-align: right;
+    margin-top: 30px;
+    font-family: 'Great Vibes', cursive;
+    font-size: 27px;
+    color: #b52c70;
+}
+
+.signature span {
+    color: #e43e83;
+}
+
+/* SECCIÓN DE SORPRESA */
+
+.surprise-section {
+    text-align: center;
+    margin: 60px auto 30px;
+}
+
+.surprise-section h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 42px;
+    color: #ff9dc9;
+    margin-bottom: 15px;
+}
+
+.surprise-section p {
+    color: #e5c9dc;
+    font-size: 14px;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.surprise {
+    margin: 30px auto;
+    padding: 30px;
+    max-width: 550px;
+    background: rgba(255, 90, 160, 0.12);
+    border: 1px solid #ff75ad;
+    border-radius: 20px;
+    animation: appear 1s ease;
+}
+
+.big-heart {
+    font-size: 85px;
+    color: #ff5a9e;
+    animation: heartbeat 1.2s infinite;
+}
+
+.surprise h2 {
+    margin: 15px 0;
+}
+
+/* OCULTAR ELEMENTOS */
+
+.hidden {
+    display: none;
+}
+
+/* ANIMACIÓN DE APARICIÓN */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    margin-top: 60px;
+    text-align: center;
+    color: #bd9db2;
+    font-size: 12px;
+    line-height: 2;
+}
+
+/* DISEÑO PARA CELULARES */
+
+@media (max-width: 600px) {
+
+    .container {
+        padding: 40px 15px;
+    }
+
+    .love-card {
+        padding: 35px 20px;
+    }
+
+    .header h1 {
+        font-size: 48px;
+    }
+
+    .letter {
+        padding: 25px 20px;
+    }
+
+    .letter h2 {
+        font-size: 38px;
+    }
+
+    .letter p {
+        font-size: 13px;
+    }
+
+    .small-title {
+        letter-spacing: 3px;
+    }
+}
